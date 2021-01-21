@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
-import crypto from "crypto";
-import { v4 as uuidv4 } from "uuid";
-
+const mongoose = require("mongoose");
+const crypto = require("crypto");
+const { v4 } = require("uuid");
+const uuidv4 = v4;
 const { Schema } = mongoose;
 
 const userSchema = new Schema(
@@ -56,7 +56,7 @@ userSchema
     return this._password;
   });
 //my new gitData
-userSchema.method = {
+userSchema.methods = {
   authenticate: function (plainPassword) {
     return this.securePassword(plainPassword) === this.encry_password;
   },
