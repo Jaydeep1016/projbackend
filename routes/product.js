@@ -50,7 +50,7 @@ router.put(
   updateProduct
 );
 //Listing Routes
-router.get("/product", getAllProducts);
+router.get("/products", getAllProducts);
 
 router.get("/products/categories", getAllUniqueCategories);
 
