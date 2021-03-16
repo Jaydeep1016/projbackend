@@ -15,13 +15,20 @@ exports.getOrderById = (req, res, next, id) => {
 };
 
 exports.createOrder = (req, res) => {
+  console.log("I Am in Create Order");
+
   req.body.order.user = req.profile;
   const order = new Order(req.body.order);
+  // console.log("USER ", order);
+
   order.save((err, order) => {
     if (err) {
+      // console.log("i am in save order", err);
+
       return res.status(400).json({
         error: "Failed to save order in DB",
       });
+      // console.log("i am in save order");
     }
     res.json(order);
   });

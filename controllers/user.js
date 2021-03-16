@@ -57,6 +57,8 @@ exports.userPurchaseList = (req, res) => {
 };
 
 exports.pushOrderInPurchaseList = (req, res, next) => {
+  // console.log("i am in PushIn Order", req.body.order.products);
+
   let purchases = [];
   req.body.order.products.forEach((product) => {
     purchases.push({
@@ -76,7 +78,7 @@ exports.pushOrderInPurchaseList = (req, res, next) => {
     { $push: { purchases: purchases } },
     { new: true },
     (err, purchases) => {
-      if (err) {
+      if (err || !purchases) {
         return res.status(400).json({
           error: "Unable to save purchase List",
         });

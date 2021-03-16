@@ -24,8 +24,8 @@ router.post(
   isAuthenticated,
   pushOrderInPurchaseList,
   updateStock,
-  createOrder,
-  updateStatus
+  createOrder
+  // updateStatus
 );
 // Read route
 
